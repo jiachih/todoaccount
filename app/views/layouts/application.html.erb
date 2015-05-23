@@ -7,7 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% unless user_signed_in? %>
+<%= link_to "登入", new_user_session_path %>
+<%= link_to "註冊", new_user_registration_path %>
+<% end %>
 
+<%= link_to "登出", destroy_user_session_path,method:'delete' %>
+<%= link_to "Home", root_path%>
+<%= link_to "Group", groups_path%>
 <%= yield %>
 
 </body>

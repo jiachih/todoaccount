@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @group.description %>
+</p>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
+<%= link_to "New Expense", new_group_expense_path(@group)%>
+<h3>expenses</h3>
+<% @expenses.each do|expense| %>
+<%= link_to expense.category, group_expense_path(@group,expense)  %>
+<% end %>
+ 
